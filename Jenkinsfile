@@ -6,7 +6,7 @@ pipeline {
         }
     }
     stages {
-        stage 'build' {
+        stage ('build') {
             echo 'hello'
         }
     }
