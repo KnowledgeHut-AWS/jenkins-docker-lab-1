@@ -22,11 +22,24 @@ EOF
         stage ('build') {
             steps {
                 sh "docker build --tag manifest-holder:latest ."
+                sh "docker tag manifest-holder manifest-holder:${BUILD_NUMBER}"
+                sh "docker tag manifest-holder bryandollery/manifest-holder:latest"
+                sh "docker tag manifest-holder bryandollery/manifest-holder:${BUILD_NUMBER}"
             }
         }
         stage ('test') {
             steps {
                 sh "docker run --rm manifest-holder"
+            }
+        }
+        stage ('release') {
+            environment {
+                CREDS = credentials('bryan-docker-hub')
+            }
+            steps {
+                sh "docker login -u ${CREDS_USR} -p ${CREDS_PWD}"
+                sh "docker push bryandollery/manifest-holder:${BUILD_NUMBER}"
+                sh "docker push bryandollery/manifest-holder:latest"
             }
         }
     }
