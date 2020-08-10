@@ -14,7 +14,7 @@ pipeline {
         }
         stage ('build') {
             steps {
-                echo 'hello master' 
+                sh "docker build --tag manifest-holder:latest ."
             }
         }
     }
