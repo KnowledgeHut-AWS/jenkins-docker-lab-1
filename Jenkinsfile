@@ -34,7 +34,7 @@ EOF
         }
         stage ('release') {
             environment {
-                CREDS = credentials('bryan-docker-hub')
+                CREDS = credentials('bryan-docker-hub-token')
             }
             steps {
                 sh "docker login -u ${CREDS_USR} -p ${CREDS_PSW}"
