@@ -11,6 +11,7 @@ pipeline {
                 sh """
 cat <<EOF > ./manifest.txt
 name: ${JOB_NAME}
+time2: ${TAG_DATE}
 time: ${currentBuild.startTimeInMillis}
 build #: ${BUILD_NUMBER}
 EOF
