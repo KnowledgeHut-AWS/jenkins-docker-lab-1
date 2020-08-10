@@ -19,7 +19,7 @@ pipeline {
         }
         stage ('test') {
             steps {
-                docker run -it --rm manifest-holder:latest
+                sh "docker run -it --rm manifest-holder"
             }
         }
     }
