@@ -8,8 +8,12 @@ pipeline {
     stages {
         stage ('generate manifest') {
             steps {
-                sh "echo 'time' ${BUILD_ID} > manifest.txt"
-                sh "echo 'build number: ' ${BUILD_NUMBER} >> manifest.txt"
+                sh """
+echo <<EOF > ./manifest.txt
+time: ${BUILD_ID}
+build #: ${BUILD_NUMBER}
+EOF
+"""
             }
         }
         stage ('build') {
