@@ -37,7 +37,7 @@ EOF
                 CREDS = credentials('bryan-docker-hub')
             }
             steps {
-                sh "docker login -u ${CREDS_USR} -p ${CREDS_PWD}"
+                sh "docker login -u ${CREDS_USR} -p ${CREDS_PSW}"
                 sh "docker push bryandollery/manifest-holder:${BUILD_NUMBER}"
                 sh "docker push bryandollery/manifest-holder:latest"
             }
