@@ -17,5 +17,10 @@ pipeline {
                 sh "docker build --tag manifest-holder:latest ."
             }
         }
+        stage ('test') {
+            steps {
+                docker run -it --rm manifest-holder:latest
+            }
+        }
     }
 } 
