@@ -3,9 +3,7 @@ pipeline {
     agent {
         docker {
             image 'bryandollery/alpine-docker'
-                args {
-                    "-u root"
-                }
+            args "-u root"
         }
     }
     stages {
