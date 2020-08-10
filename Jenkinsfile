@@ -10,18 +10,15 @@ pipeline {
             steps {
                 sh """
 cat <<EOF > ./manifest.txt
-time: ${BUILD_ID}
+name: ${JOB_NAME}
+time: ${${currentBuild.startTimeInMillis}}
 build #: ${BUILD_NUMBER}
 EOF
-cat ./manifest.txt
-pwd
-ls -gAlFh
 """
             }
         }
         stage ('build') {
             steps {
-                sh "cat ./manifest.txt"
                 sh "docker build --tag manifest-holder:latest ."
             }
         }
