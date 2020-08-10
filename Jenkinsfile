@@ -9,7 +9,7 @@ pipeline {
         stage ('generate manifest') {
             steps {
                 sh """
-echo <<EOF > ./manifest.txt
+cat <<EOF > ./manifest.txt
 time: ${BUILD_ID}
 build #: ${BUILD_NUMBER}
 EOF
