@@ -18,6 +18,7 @@ EOF
         }
         stage ('build') {
             steps {
+                sh "cat ./manifest.txt"
                 sh "docker build --tag manifest-holder:latest ."
             }
         }
