@@ -13,6 +13,9 @@ cat <<EOF > ./manifest.txt
 name: ${JOB_NAME}
 time: ${currentBuild.startTimeInMillis}
 build #: ${BUILD_NUMBER}
+commit: ${GIT_COMMIT}
+url: ${GIT_URL}
+author: ${GIT_AUTHOR_NAME} (${GIT_AUTHOR_EMAIL})
 EOF
 """
             }
