@@ -13,6 +13,9 @@ echo <<EOF > ./manifest.txt
 time: ${BUILD_ID}
 build #: ${BUILD_NUMBER}
 EOF
+cat ./manifest.txt
+pwd
+ls -gAlFh
 """
             }
         }
